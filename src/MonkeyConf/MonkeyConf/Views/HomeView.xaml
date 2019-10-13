@@ -1,0 +1,390 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MonkeyConf.Views.HomeView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <Style x:Key="LogoHeaderStyle" TargetType="Image">
+                <Setter Property="HeightRequest" Value="300" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="Margin" Value="120, 60" />
+            </Style>
+
+            <Style x:Key="SponsorLogoStyle" TargetType="Image">
+                <Setter Property="Aspect" Value="AspectFit" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="Margin" Value="12" />
+            </Style>
+
+            <Style x:Key="SectionTitleStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="Margin" Value="0, 12, 0, 6" />
+            </Style>
+
+            <Style x:Key="SectionSubTitleStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+
+            <Style x:Key="InfoIconStyle" TargetType="Image">
+                <Setter Property="HeightRequest" Value="80" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+
+            <Style x:Key="InfoTitleStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+
+            <Style x:Key="InfoSubTitleStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+
+            <Style x:Key="CallButtonStyle" TargetType="Button">
+                <Setter Property="HeightRequest" Value="60" />
+                <Setter Property="CornerRadius" Value="18" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="BackgroundColor" Value="{StaticResource AccentColor}" />
+                <Setter Property="TextColor" Value="Purple" />
+                <Setter Property="WidthRequest" Value="250" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="Margin" Value="12, 6"/>
+            </Style>
+
+            <Style x:Key="FooterStyle" TargetType="Grid">
+                <Setter Property="BackgroundColor" Value="Black" />
+                <Setter Property="HeightRequest" Value="60" />
+                <Setter Property="VerticalOptions" Value="End" />
+            </Style>
+
+            <Style x:Key="CopyrightStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="Margin" Value="12, 0" />
+            </Style>
+
+            <Style x:Key="FooterImageStyle" TargetType="Image">
+                <Setter Property="HorizontalOptions" Value="End" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="Margin" Value="12, 6"/>
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout
+                Spacing="0">
+                <!-- HEADER -->
+                <Grid>
+                    <Image
+                        Aspect="AspectFill"
+                        Source="Assets/img_back_top.png"/>
+                    <Image
+                        x:Name="Logo"
+                        Opacity="1"
+                        TranslationY="0"
+                        Aspect="AspectFit"
+                        Source="Assets/img_back_top_logo.png"
+                        Style="{StaticResource LogoHeaderStyle}">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Command="{Binding TicketCommand}"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Grid>
+                <!-- SPONSORS -->
+                <Label 
+                    Text="SPONSORS"
+                    Style="{StaticResource SectionTitleStyle}"/>
+                <Label
+                    Text="Mira quien hace posible el evento!"
+                    Style="{StaticResource SectionSubTitleStyle}"/>
+                <!-- FIRST SPONSORS -->
+                <Grid
+                    HorizontalOptions="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Image
+                        Grid.Column="0"
+                        Source="Assets/Spon_Microsoft.png"
+                        Style="{StaticResource SponsorLogoStyle}">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Command="{Binding SponsorCommand}"
+                                CommandParameter="http://www.microsoft.com"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Image 
+                        Grid.Column="1"
+                        Source="Assets/Spon_Devsdna.png"
+                        Style="{StaticResource SponsorLogoStyle}">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Command="{Binding SponsorCommand}"
+                                CommandParameter="http://www.devsdna.com"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Image 
+                        Grid.Column="2"
+                        Source="Assets/Spon_Plain.png"
+                        Style="{StaticResource SponsorLogoStyle}">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Command="{Binding SponsorCommand}"
+                                CommandParameter="http://www.plainconcepts.com"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Grid>
+                <!-- SECOND SPONSORS -->
+                <Grid
+                    HorizontalOptions="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Image
+                        Grid.Column="0"
+                        Source="Assets/Spon_Liferay.png"
+                        Style="{StaticResource SponsorLogoStyle}">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Command="{Binding SponsorCommand}"
+                                CommandParameter="http://www.liferay.es"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Grid>
+                <!-- GENERAL INFO -->
+                <FlexLayout
+                    Direction="Column"
+                    AlignItems="Stretch"
+                    Wrap="Wrap"
+                    BackgroundColor="{StaticResource GrayColor}"
+                    HorizontalOptions="Center"
+                    HeightRequest="200">
+                    <Grid
+                        HorizontalOptions="Center"
+                        Margin="24">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="1" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Image 
+                            Grid.Row="0"
+                            Aspect="AspectFit"
+                            Source="Assets/ic_assitant.png"
+                            Style="{StaticResource InfoIconStyle}"/>
+                        <Label 
+                            Grid.Row="1"
+                            Text="160"
+                            Style="{StaticResource InfoTitleStyle}"/>
+                        <Grid
+                            Grid.Row="2"
+                            BackgroundColor="Gray"
+                            WidthRequest="60"
+                            Margin="24, 0"/>
+                        <Label 
+                            Grid.Row="3"
+                            Text="Asistentes"
+                            Style="{StaticResource InfoSubTitleStyle}"/>
+                    </Grid>
+                    <Grid
+                        HorizontalOptions="Center"
+                        Margin="24">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="1" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Image 
+                            Grid.Row="0"
+                            Aspect="AspectFit"
+                            Source="Assets/ic_sessions.png"
+                            Style="{StaticResource InfoIconStyle}"/>
+                        <Label 
+                            Grid.Row="1"
+                            Text="+12"
+                            Style="{StaticResource InfoTitleStyle}"/>
+                        <Grid
+                            Grid.Row="2"
+                            BackgroundColor="Gray"
+                            WidthRequest="60"
+                            Margin="24, 0"/>
+                        <Label 
+                            Grid.Row="3"
+                            Text="Sesiones"
+                            Style="{StaticResource InfoSubTitleStyle}"/>
+                    </Grid>
+                    <Grid
+                        HorizontalOptions="Center"
+                        Margin="24">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="1" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Image 
+                            Grid.Row="0"
+                            Aspect="AspectFit"
+                            Source="Assets/ic_tracks.png"
+                            Style="{StaticResource InfoIconStyle}"/>
+                        <Label 
+                            Grid.Row="1"
+                            Text="3"
+                            Style="{StaticResource InfoTitleStyle}"/>
+                        <Grid
+                            Grid.Row="2"
+                            BackgroundColor="Gray"
+                            WidthRequest="60"
+                            Margin="24, 0"/>
+                        <Label 
+                            Grid.Row="3"
+                            Text="Tracks"
+                            Style="{StaticResource InfoSubTitleStyle}"/>
+                    </Grid>
+                    <Grid
+                        HorizontalOptions="Center"
+                        Margin="24">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="1" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Image 
+                            Grid.Row="0"
+                            Aspect="AspectFit"
+                            Source="Assets/ic_surprise.png"
+                            Style="{StaticResource InfoIconStyle}"/>
+                        <Label 
+                            Grid.Row="1"
+                            Text="?"
+                            Style="{StaticResource InfoTitleStyle}"/>
+                        <Grid
+                            Grid.Row="2"
+                            BackgroundColor="Gray"
+                            WidthRequest="60"
+                            Margin="24, 0"/>
+                        <Label 
+                            Grid.Row="3"
+                            Text="Muchas sorpresas!"
+                            Style="{StaticResource InfoSubTitleStyle}"/>
+                    </Grid>
+                </FlexLayout>
+                <!-- CALL 4 PAPER -->
+                <Label 
+                    Text="CALL 4 PAPER"
+                    Style="{StaticResource SectionTitleStyle}"/>
+                <Label
+                    Text="Esperamos tu propuesta!"
+                    Style="{StaticResource SectionSubTitleStyle}"/>
+                <Button 
+                    Text="ENVIAR PROPUESTA"
+                    Command="{Binding CallForPaperCommand}"
+                    Style="{StaticResource CallButtonStyle}"/>
+                <!-- THE PLACE -->
+                <Label 
+                    Text="EL LUGAR"
+                    Style="{StaticResource SectionTitleStyle}"/>
+                <Label
+                    Text="¿Cómo llegar al evento?"
+                    Style="{StaticResource SectionSubTitleStyle}"/>
+                <FlexLayout
+                    Direction="Column"
+                    AlignItems="Stretch"
+                    Wrap="Wrap"
+                    HorizontalOptions="Center">
+                    <Grid
+                        HorizontalOptions="Center"
+                        Margin="24">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="1" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Image 
+                            Grid.Row="0"
+                            Aspect="AspectFit"
+                            Source="Assets/ic_address.png"
+                            Style="{StaticResource InfoIconStyle}"/>
+                        <Label 
+                            Grid.Row="1"
+                            Text="La dirección"
+                            Style="{StaticResource InfoTitleStyle}"/>
+                        <Label 
+                            Grid.Row="3"
+                            Text="Paseo de la Castellana, 280, 28046 Madrid"
+                            Style="{StaticResource InfoSubTitleStyle}"/>
+                    </Grid>
+                    <Grid
+                        HorizontalOptions="Center"
+                        Margin="24">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="1" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Image 
+                            Grid.Row="0"
+                            Aspect="AspectFit"
+                            Source="Assets/ic_transport.png"
+                            Style="{StaticResource InfoIconStyle}"/>
+                        <Label 
+                            Grid.Row="1"
+                            Text="¿Cómo llegar?"
+                            Style="{StaticResource InfoTitleStyle}"/>
+                        <Label 
+                            Grid.Row="3"
+                            Text="Las siguientes líneas de transporte tienen rutas que pasan cerca - Autobús: 147, 154, 66; Tren: C10, C4, C7; Metro: M-10."
+                            Style="{StaticResource InfoSubTitleStyle}"/>
+                    </Grid>
+                </FlexLayout>
+                <Image
+                    HeightRequest="300"                  
+                    Aspect="AspectFill"
+                    Source="Assets/map.png"/>
+                <!-- FOOTER -->
+                <Grid
+                    Style="{StaticResource FooterStyle}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Label 
+                        Grid.Column="0"
+                        Text="© 2019 All Rights Reserved"
+                        Style="{StaticResource CopyrightStyle}"/>
+                    <Image 
+                        Grid.Column="1"
+                        Source="Assets/MC_Logo_top_menu.png"
+                        Style="{StaticResource FooterImageStyle}"/>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
