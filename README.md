@@ -1,6 +1,6 @@
 # Monkey Conf Website
 
-Website project of the [Monkey Conf](www.monkeyconf.es) event. Created using **Xamarin.Forms** with the Uno Platform WebAssembly Renderers for Xamarin.Forms.
+Website project of the [Monkey Conf](http://www.monkeyconf.es) event. Created using **Xamarin.Forms** with the Uno Platform WebAssembly Renderers for Xamarin.Forms.
 
 ### Screenshots
 
