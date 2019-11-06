@@ -129,8 +129,11 @@
     <Content Include="Assets\SplashScreen.scale-400.png" />
     <Content Include="Assets\Spon_Devsdna.png" />
     <Content Include="Assets\Spon_Liferay.png" />
+    <Content Include="Assets\Spon_MFractor.png" />
     <Content Include="Assets\Spon_Microsoft.png" />
+    <Content Include="Assets\Spon_NullPointer.png" />
     <Content Include="Assets\Spon_Plain.png" />
+    <Content Include="Assets\Spon_SyncFusion.png" />
     <Content Include="Assets\Square150x150Logo.scale-100.png" />
     <Content Include="Assets\Square150x150Logo.scale-200.png" />
     <Content Include="Assets\Square150x150Logo.scale-400.png" />

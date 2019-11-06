@@ -172,6 +172,26 @@
                                 CommandParameter="http://www.liferay.es"/>
                         </Image.GestureRecognizers>
                     </Image>
+                    <Image
+                        Grid.Column="1"
+                        Source="Assets/Spon_NullPointer.png"
+                        Style="{StaticResource SponsorLogoStyle}">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Command="{Binding SponsorCommand}"
+                                CommandParameter="https://nullpointergroup.com"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Image
+                        Grid.Column="2"
+                        Source="Assets/Spon_MFractor.png"
+                        Style="{StaticResource SponsorLogoStyle}">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Command="{Binding SponsorCommand}"
+                                CommandParameter="https://www.mfractor.com"/>
+                        </Image.GestureRecognizers>
+                    </Image>
                 </Grid>
                 <!-- GENERAL INFO -->
                 <FlexLayout
