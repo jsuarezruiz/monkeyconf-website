@@ -1,4 +1,7 @@
-﻿using System;
+﻿using MonkeyConf.Models;
+using MonkeyConf.Services;
+using System;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -6,6 +9,23 @@ namespace MonkeyConf.ViewModels
 {
     public class HomeViewModel : BindableObject
     {
+        ObservableCollection<TimeTrackInfo> _schedule;
+
+        public HomeViewModel()
+        {
+            LoadSchedule();
+        }
+
+        public ObservableCollection<TimeTrackInfo> Schedule
+        {
+            get { return _schedule; }
+            set
+            {
+                _schedule = value;
+                OnPropertyChanged();
+            }
+        }
+
         public ICommand TicketCommand => new Command(ExecuteTicket);
         public ICommand SponsorCommand => new Command<string>(ExecuteSponsor);
         public ICommand CallForPaperCommand => new Command(ExecuteCallForPaper);
@@ -23,6 +43,12 @@ namespace MonkeyConf.ViewModels
         void ExecuteCallForPaper()
         {
             Device.OpenUri(new Uri("https://www.koliseo.com/jsuarezruiz/monkey-conf-2019/r4p/5678082530738176#/talks"));
+        }
+
+        void LoadSchedule()
+        {
+            var eventSchedule = ScheduleService.Instance.GetEventSchedule();
+            Schedule = new ObservableCollection<TimeTrackInfo>(eventSchedule[0].Info);
         }
     }
 }
