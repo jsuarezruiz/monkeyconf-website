@@ -221,6 +221,16 @@
                                 CommandParameter="http://www.syncfusion.com"/>
                         </Image.GestureRecognizers>
                     </Image>
+                    <Image
+                        Grid.Column="1"
+                        Source="Assets/Spon_Bravent.png"
+                        Style="{StaticResource SponsorLogoStyle}">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Command="{Binding SponsorCommand}"
+                                CommandParameter="https://www.bravent.net"/>
+                        </Image.GestureRecognizers>
+                    </Image>
                 </Grid>
                 <!-- GENERAL INFO -->
                 <FlexLayout

@@ -127,6 +127,7 @@
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-400.png" />
+    <Content Include="Assets\Spon_Bravent.png" />
     <Content Include="Assets\Spon_Devsdna.png" />
     <Content Include="Assets\Spon_Liferay.png" />
     <Content Include="Assets\Spon_MFractor.png" />
